@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Radar Animation</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<ul id="radar" class="radar">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<div class="square">
+		<br>
+		<br>
+		<center>
+		<table class="table" id="tablaDatos">
+		  <thead>
+		  	<th>Grados</th>
+		    <th>Distancia</th>
+		    <th>Coordenada X</th>
+		    <th>Coordenada Y</th>
+		  </thead>
+		</table>
+		</center>
+	</div>
+	<p id="demo"></p>
+<script>
+	function agregarPunto(x,y,grad,dist) {
+
+		var ul = document.getElementById("radar");
+		var li = document.createElement("li");
+		li.setAttribute("class", "point"); // added line
+		li.style.left = x+"px";
+		li.style.top = y+"px";
+		ul.appendChild(li);
+		var table = document.getElementById("tablaDatos");
+		var row = table.insertRow(1);
+		var cell1 = row.insertCell(0);
+		var cell2 = row.insertCell(1);
+		var cell3 = row.insertCell(2);
+		var cell4 = row.insertCell(3);
+		cell1.innerHTML = grad;
+		cell2.innerHTML = dist;
+		cell3.innerHTML = (dist*Math.sin(grad*Math.PI/180)).toFixed(4);
+		cell4.innerHTML = (dist*Math.cos(grad*Math.PI/180)).toFixed(4);
+	}
+	function limpiarRadar(){
+		
+	}
+</script>
+</body>
+</html>
